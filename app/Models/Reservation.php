@@ -7,18 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model
 {
-    protected $table = "reservations";
+    protected $table = "resv_reservations";
     protected $fillable = [
-        'room_id', 
+        'room_id',
         'category_id',
         'reservation_id',
-         'nor', 
-         'medium', 
-         'fullname', 
+         'nor',
+         'medium',
+         'fullname',
          'address',
-         'requests', 
-         'phone', 
-         'email', 
+         'requests',
+         'phone',
+         'email',
          'checkin',
          'checkout',
     ];

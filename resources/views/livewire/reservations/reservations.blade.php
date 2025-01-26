@@ -30,10 +30,6 @@
                     <div class="card">
                       <div class="row g-0">
                         <div class="col-md-4">
-
-                            @php
-                                echo asset('storage/'.$allocation->category->image);
-                            @endphp
                           <img class="card-img card-img-left" src="{{ Storage::url('category-images/'.$allocation->category->image) }}"  alt="Card image" />
                         </div>
                         <div class="col-md-8">

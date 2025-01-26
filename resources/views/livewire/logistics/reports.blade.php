@@ -125,7 +125,7 @@
             <div class="bs-stepper-content p-1">
                 <form onSubmit="return false">
                     @csrf
-                <!-- inputs -->
+                <!-- these summary inputs are different from hotel section to section but the summary note below is a must for all sections -->
 
                 <div id="inputs" class="content pt-4 pt-lg-0">
                  <h6>Enter Activity Inputs</h6>
@@ -163,12 +163,12 @@
                   </div>
                 </div>
 
-                <!-- note -->
+                <!-- note is a must on all reports -->
                 <div id="note" class="content pt-4 pt-lg-0">
-                 <h6>Activity Summary Note if Any</h6>
+                 <h6>Report Summary Note</h6>
                   <ul class="p-0 m-0">
                      <div>
-                         <label for="exampleFormControlTextarea1" class="form-label">Write Summary Note Below</label>
+                         <label for="exampleFormControlTextarea1" class="form-label">Write Your report Note Below</label>
                          <textarea wire:model='note' class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                        </div>
                   </ul>
@@ -207,12 +207,12 @@
                   <p class="small">Please select the receiver of this report. </p>
 
                   <!-- REPORTING CHANNEL -->
-                 <select wire:model="report_to" value='admin' class="form-select form-select-lg"
+                 <select wire:model="sent_to" value='admin' class="form-select form-select-lg"
                      data-allow-clear="true">
                      <option value="">--Select Receiver--</option>
                 <!-- select from stored database reporting channel configuration -->
 
-                     <option value="A">Maintenance Manager </option>
+                     <option value="1234">Maintenance Manager </option>
                  </select><br>
                   <div class="col-12 d-flex justify-content-between mt-6">
                     <button class="btn btn-label-secondary btn-prev"> <i class="ti ti-arrow-left ti-xs me-sm-2 me-0"></i> <span class="align-middle d-sm-inline-block d-none">Previous</span> </button>

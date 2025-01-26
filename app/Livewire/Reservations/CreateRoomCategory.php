@@ -36,8 +36,8 @@ class CreateRoomCategory extends Component
     public function store()
     {
         $validation = $this->validate([
-            'category' => ['required', 'min:4', 'unique:room_categories,category'],
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:10048'], // 10mb
+            'category' => ['required', 'min:4', 'unique:resv_room_categories,category'],
+            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg,', 'max:10048'], // 10mb
             'details' => ['required', 'min:20'],
             'wifi' => [],
             'laundry' => [],
@@ -48,7 +48,12 @@ class CreateRoomCategory extends Component
 
         if ($this->image) {
 
-            $this->image->store('category-images', 'public'); // store in default laravel storage directory(Spatie Handled it above
+
+            $imageName = $this->image->hashName();
+            $imagePath = storage_path("app/public/category-images"); // path to laravel storage (Not the public)
+            Image::load($this->image->path())
+                ->fit(fit: Fit::FillMax, desiredWidth: 500,  desiredHeight: 500, backgroundColor: '#a3a3c2')
+                ->save($imagePath . '/' . $imageName);
 
             //$this->image->store('category-images', 'public'); // store in default laravel storage directory
 

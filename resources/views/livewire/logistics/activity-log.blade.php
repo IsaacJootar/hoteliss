@@ -1,5 +1,5 @@
 <div>
- 
+
   <div class="container-xxl flex-grow-1 container-p-y">
     <div style="text-align: center">
 
@@ -8,7 +8,7 @@
     <livewire:logistics.activity-stats>
        <hr class="my-2">
 <div class="row g-6">
- 
+
   <!-- Activity Log overview -->
   <div class="col-xxl-6">
     <div class="card h-100">
@@ -509,16 +509,16 @@
       </div>
     </div>
   </div>
- 
 
- 
+
+
 </div>
 
 
 
-       
 
-          
+
+
 
 
 

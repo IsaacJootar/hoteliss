@@ -30,24 +30,35 @@ public static function get_number_of_days($checkin, $checkout){
 
 
 public static function get_total_amount_due_plain($checkin, $checkout, $category_id, $nor){
-     $amount=DB::table('room_allocations')->where('category_id', $category_id)->get()->value('price');
+     $amount = \App\Models\Roomallocation::where('category_id', $category_id)->get()->value('price');
     $amount= $amount * $nor;
     return $amount * static::get_number_of_days($checkin, $checkout);
 }
 
 
 public static function get_total_amount_due($checkin, $checkout, $category_id, $nor){
-    $amount=DB::table('room_allocations')->where('category_id', $category_id)->get()->value('price');
+    $amount= \App\Models\Reservation::where('category_id', $category_id)->get()->value('price');
    $amount= $amount * $nor;
    return static::format_currency($amount * static::get_number_of_days($checkin, $checkout));
 }
 
 //reservation status-paid or pending-find a way to clear abandoned online reservations
 public static function get_reservation_payment_status( $reservation_id){
-    $payment_status = DB::table('reservations')->where('reservation_id', $reservation_id)->get()->value('payment_status');
+    $payment_status = \App\Models\Reservation::where('reservation_id', $reservation_id)->get()->value('payment_status');
    echo ($payment_status == "Paid") ?
     "<span class='badge bg-label-success me-1'> $payment_status</span>"
     :      "<span class='badge bg-label-warning me-1'>$payment_status</span>";
+
+
+
+}
+
+
+public static function reportHasFiles($report_id){
+    $count_files = \App\Models\ReportsFileUpload::where('report_id', $report_id)->count();
+   echo ($count_files > 0) ?
+    "<span class='badge bg-label-success me-1'> Yes</span>"
+    :      "<span class='badge bg-label-warning me-1'>No</span>";
 
 
 

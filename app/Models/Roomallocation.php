@@ -1,14 +1,12 @@
 <?php
 
 namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Roomallocation extends Model
 {
-    protected $table="room_allocations";
+    protected $table="resv_room_allocations";
 
     Protected $guarded=[];   // disable mass asignment issue
 

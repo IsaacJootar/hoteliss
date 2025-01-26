@@ -97,10 +97,6 @@
     </li>
         </ul>
       </li>
-<<<<<<< HEAD
-
-=======
->>>>>>> f45b03cc80387123b2023670c8a43860e286484b
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class='menu-icon tf-icons ti ti-shopping-cart'></i>

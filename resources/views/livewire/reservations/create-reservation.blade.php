@@ -131,7 +131,7 @@
                             <h4 class="card-title"> <span class="badge bg-label-secondary">
                                     {{ $allocation->category->category }}</span></h4>
                             <h6 class="card-title">
-                                {{ $count = DB::table('room_allocations')->where('category_id', $allocation->category->id)->whereNotBetween('checkin', [$checkin, $checkout])->whereNotBetween('checkout', [$checkin, $checkout])->get()->count() }}
+                                {{ $count = \App\Models\Roomallocation::where('category_id', $allocation->category->id)->whereNotBetween('checkin', [$checkin, $checkout])->whereNotBetween('checkout', [$checkin, $checkout])->get()->count() }}
                                 Available Room (s) </h6>
                             <p class="card-text">
                                 {{ $allocation->category->details }}
@@ -180,7 +180,7 @@
 
                             </p> <br />
                             <h6 class="mb-1">Price:
-                                {{ Helper::format_currency(DB::table('room_allocations')->where('category_id', $allocation->category_id)->get()->value('price')) }}
+                                {{ Helper::format_currency(\App\Models\Roomallocation::where('category_id', $allocation->category_id)->get()->value('price')) }}
                                 <h6 class="mb-1">Per Night (Inc. Tax ) </h6>
                             </h6> <br />
                         @endforeach

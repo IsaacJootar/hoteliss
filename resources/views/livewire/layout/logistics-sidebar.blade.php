@@ -87,9 +87,9 @@
               <div data-i18n="Send Daily Reports">Send Daily Reports</div>
             </a>
           </li>
-          <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <div data-i18n="Reporting Channel">Reporting Channel</div>
+          <x-active-menu-items :active="request()->is('logistics/report-history')"></x-active-menu-items>
+          <a  href="/logistics/report-history"  class="menu-link" wire:navigated >
+              <div data-i18n="Report History">Report History</div>
             </a>
           </li>
             </ul>

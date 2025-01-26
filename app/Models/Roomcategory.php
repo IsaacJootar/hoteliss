@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Roomcategory extends Model
 {
-    protected $table="room_categories";
+    protected $table="resv_room_categories";
 
     Protected $guarded=[];   // disable mass asignment issue
 

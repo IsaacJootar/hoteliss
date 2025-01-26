@@ -11,26 +11,34 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('logis_reports', function (Blueprint $table) {
+        Schema::create('reports_upload_files', function (Blueprint $table) {
             $table->id();
             $table->integer('report_id');
-            $table->integer('trips_made');
-            $table->integer('airport_pickups');
-            $table->integer('breakdowns');
-            $table->integer('other');
-            $table->text('note');
+            $table->string('file_name');
+            $table->string('path');
+            $table->string('mime_type');
+            $table->unsignedBigInteger('size');
+            $table->string('random_name');
             $table->integer('sent_by');
             $table->integer('sent_to');
+            $table->Integer('user_id');
             $table->string('section');
             $table->timestamps();
         });
     }
+
+
+
+
+
+
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('logis_reports');
+        Schema::dropIfExists('reports_upload_files');
     }
 };

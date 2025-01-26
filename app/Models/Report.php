@@ -9,13 +9,16 @@ class Report extends Model
 {
     protected $table = "logis_reports";
     protected $fillable = [
+        'report_id', // must on all reports
         'trips_made',
         'airport_pickups',
         'breakdowns',
         'other',
-        'note',
-        'report_to',
-        'files',
+        'note', // must on all reports
+        'sent_by', // must on all reports
+        'sent_to', // must on all reports
+        'section', // must on all reports
+
 
     ];
 }

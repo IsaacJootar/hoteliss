@@ -235,7 +235,7 @@
                                                 class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                                                 <label for="formFile" class="form-label">Image should be clear and
                                                     catchy, not more than 10MB</label>
-                                                <input wire:model="image" class="form-control form-control-lg" type="file"
+                                                <input required wire:model="image" class="form-control form-control-lg" type="file"
                                                     id="formFile">
 
                                             </div>

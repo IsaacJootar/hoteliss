@@ -56,7 +56,7 @@ class CreateReservation extends Component
     {
         //validate inputs
 
-        $validation = $this->validate(
+        $this->validate(
             [
                 'email' => ['email:rfc'],
                 'nor' => ['required'],

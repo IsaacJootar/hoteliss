@@ -46,9 +46,9 @@
 
                       </tr>
                       <tr>
-                        <td>{{($email = DB::table('reservations')->where('reservation_id', $reservation_id)->get()->value('email'))}}</td>
-                        <td>{{(DB::table('reservations')->where('reservation_id', $reservation_id)->get()->value('medium'))}}</td>
-                        <td>{{( Str::of(DB::table('reservations')->where('reservation_id', $reservation_id)->get()->value('address'))->limit(50))}}</td>
+                        <td>{{($email = \App\Models\Reservation::where('reservation_id', $reservation_id)->get()->value('email'))}}</td>
+                        <td>{{(\App\Models\Reservation::where('reservation_id', $reservation_id)->get()->value('medium'))}}</td>
+                        <td>{{( Str::of(\App\Models\Reservation::where('reservation_id', $reservation_id)->get()->value('address'))->limit(50))}}</td>
 
 
 
@@ -70,7 +70,7 @@
 
                         </td>
                         <td></td>
-                        <td>{{(Str::of(DB::table('reservations')->where('reservation_id', $reservation_id)->get()->value('requests'))->limit(50))}}</td>
+                        <td>{{(Str::of(\App\Models\Roomallocation::where('reservation_id', $reservation_id)->get()->value('requests'))->limit(50))}}</td>
 
 
                       </tr>
@@ -120,13 +120,13 @@
             <div class="bg-lighter p-6 rounded">
               <p><h6>{{(DB::table('room_categories')->where('id', $category_id)->get()->value('category'))}}</h6></p>
               <div class="d-flex align-items-center mb-4">
-                <h2 class="text-heading mb-0">{{Helper::format_currency($price = DB::table('room_allocations')->where('category_id', $category_id)->get()->value('price'));}}</h2>
+                <h2 class="text-heading mb-0">{{Helper::format_currency($price = \App\Models\Roomallocation::where('category_id', $category_id)->get()->value('price'));}}</h2>
                 <sub class="h6 text-body mb-n3">/Night</sub>
               </div>
               <div class="d-grid">
                 @php
                 // number of rooms
-                 $nor = DB::table('reservations')->where('reservation_id', $reservation_id)->get()->value('nor')
+                 $nor = \App\Models\Reservation::where('reservation_id', $reservation_id)->get()->value('nor')
                 @endphp
                 <a href="{{route('update-reservation', [
                'reservation_id' => $reservation_id,
