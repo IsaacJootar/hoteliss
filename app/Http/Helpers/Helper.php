@@ -53,11 +53,22 @@ public static function get_reservation_payment_status( $reservation_id){
 
 }
 
+public static function get_message_channel_flag( $message_id){
+    $message_channel = \App\Models\SystemMessage::where('message_id', $message_id)->get()->value('message_type');
+   echo ($message_channel == "message") ?
+    "<span class='badge bg-label-secondary ms-1'> $message_channel</span>"
+
+    :      "<span class='badge bg-label-info ms-1'>$message_channel</span>";
+
+
+
+}
+
 
 public static function reportHasFiles($report_id){
     $count_files = \App\Models\ReportsFileUpload::where('report_id', $report_id)->count();
    echo ($count_files > 0) ?
-    "<span class='badge bg-label-success me-1'> Yes</span>"
+    "<span class='badge bg-label-success me-1'> Yes ($count_files) </span>"
     :      "<span class='badge bg-label-warning me-1'>No</span>";
 
 

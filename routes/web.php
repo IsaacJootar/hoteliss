@@ -9,15 +9,16 @@ use App\Livewire\Logistics\ActivityLog;
 use App\Livewire\Reservations\DueRooms;
 use App\Livewire\Logistics\ReportHistory;
 use App\Livewire\Logistics\MessageHistory;
+use App\Livewire\Logistics\SystemMessages;
 use App\Livewire\Reservations\CreateRooms;
 use App\Livewire\Reservations\Reservations;
 use App\Livewire\Reservations\ReservedRooms;
-use App\Livewire\Reservations\AvailableRooms;
 
  Route::get('/', HomePage::class);
 
 /////////////////////////  Routes for the Maintenance Module  ///////////////////////////
 
+use App\Livewire\Reservations\AvailableRooms;
 use App\Livewire\Reservations\HomeCreateRooms;
 use App\Livewire\Reservations\ReservationFeeds;
 use App\Livewire\Reservations\CreateReservation;
@@ -55,6 +56,7 @@ Route::get('/reservations/reservation-feeds', ReservationFeeds::class)->name('re
  route::get('/logistics/reports', Reports::class)->name('reports');
  route::get('/logistics/report-history', ReportHistory::class)->name('report-history');
  route::get('/logistics/message-history', MessageHistory::class)->name('message-history');
+ route::get('/logistics/system-messages', SystemMessages::class)->name('system-messages');
 
    //Routes for paystack Payments
    Route::get('/pay/{amount}/{email}/{reference}', [PaymentController::class,'pay'])->name('pay'); // reference-reservation ID

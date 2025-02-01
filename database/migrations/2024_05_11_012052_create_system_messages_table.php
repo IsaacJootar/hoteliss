@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reports_upload_files', function (Blueprint $table) {
+        Schema::create('system_messages', function (Blueprint $table) {
             $table->id();
-            $table->integer('report_id');
-            $table->string('file_name');
-            $table->string('path');
-            $table->string('mime_type');
-            $table->unsignedBigInteger('size');
-            $table->string('random_name');
+            $table->integer('message_id');
+            $table->text('message');
+            $table->string('message_type');
             $table->integer('sent_by');
             $table->integer('sent_to');
-            $table->Integer('user_id');
             $table->string('section');
             $table->date('date');
             $table->timestamps();

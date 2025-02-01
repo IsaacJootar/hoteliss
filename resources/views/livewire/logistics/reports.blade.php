@@ -18,17 +18,21 @@
 
                         <tr>
                             <th>SN</th>
+                            <th>Report ID</th>
                             <th>Trips Made</th>
                             <th>Airport PickUps</th>
                             <th>Other Movements</th>
                              <th>Breakdowns</th>
-                            <th>Actions</th>
+
                         </tr>
                     </thead>
                         <tbody class="table-border-bottom-0">
                             @foreach ($reports as $report )
                             <tr wire:key='{{$report->id}}'>
                                 <td>{{$loop->index + 1}}</td>
+                                <td>
+                                    {{$report->report_id}}
+                                </td>
                                 <td>
                                     {{$report->trips_made}}
                                 </td>
@@ -43,20 +47,6 @@
 
                                 </td>
 
-                                <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                            data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
-                                        <div class="dropdown-menu">
-                                            <a wire:click="edit({{ $report->id }})" data-bs-toggle="modal" data-bs-target="#createApp" class="dropdown-item" href="javascript:void(0);"><i
-                                                class="ti ti-pencil me-1"></i> Edit</a>
-                                            <a wire:click='destroy({{ $report->id }})'
-                                                wire:confirm="Are you sure you want to proceed and delete this item?"
-                                                class="dropdown-item" href="javascript:void(0);"><i
-                                                    class="ti ti-search me-1"></i> View Report</a>
-                                        </div>
-                                    </div>
-                                </td>
 
                             </tr>
                             @endforeach
@@ -189,7 +179,7 @@
 
                        <div class="mb-4">
                          <label for="formFileMultiple" class="form-label">You can upload Multiple files at once if necessary</label>
-                         <x-filepond::upload wire:model="files" />
+                         <x-filepond::upload wire:model="files" multiple />
                        </div>
                    </div>
                  </ul>
@@ -218,8 +208,7 @@
                     <button class="btn btn-label-secondary btn-prev"> <i class="ti ti-arrow-left ti-xs me-sm-2 me-0"></i> <span class="align-middle d-sm-inline-block d-none">Previous</span> </button>
 
                     <button wire:click='save' type="button" class="btn btn-success">{{$modal_flag ? 'Update Report' : 'Send Report'}}</button>
-
-                  </div>
+                    <x-app-loader> sending...</x-app-loader>                  </div>
                 </div>
               </form>
             </div>

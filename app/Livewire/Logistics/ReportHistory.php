@@ -16,10 +16,6 @@ class ReportHistory extends Component
     public  $report_id; // report ID for modal full report view, for individul view display
     public  $files; // files instance
     public $modal_title;
-    public function mount()
-    {
-        $this->reports = Report::all();
-    }
 
 
     public function view($report_id)

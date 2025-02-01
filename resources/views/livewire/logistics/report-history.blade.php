@@ -21,7 +21,7 @@
                             <th>Airport PickUps</th>
                             <th>Other Movements</th>
                              <th>Breakdowns</th>
-                             <th>Report Note</th>
+                             <th>Summary Note</th>
 
                              <th>Contain File(s)?</th>
                             <th>Actions</th>
@@ -89,17 +89,21 @@
             <div class="text-center mb-6">
 
             <h4 class="mb-2"><x-home-page-label>{{$modal_title}}</x-home-page-label></h4>
+
+            <b class="badge bg-label-secondary ms-1">  Report Date / Time:  {{$data = \App\Models\Report::where('report_id', $report_id)->value('created_at')}}
+            </b>
+                <p  class="badge bg-label-info ms-1">
+          @php use Carbon\Carbon; echo  Carbon::parse($data)->diffForHumans(); @endphp
+        </p>
+
           </div>
 
-<!--/ Reasons for delivery exceptions -->
 
   <!-- Report Full View-->
-  <div class="col-xxl-4 col-lg-16">
+
     <div class="card h-100">
       <div class="card-header d-flex align-items-center justify-content-between">
         <div class="card-title mb-0">
-
-          <p class="card-subtitle"><b class="badge bg-label-infor ms-1">Toggle the Tabs Below to View Report Data</b></p>
         </div>
         <div class="dropdown">
           <button class="btn btn-text-secondary rounded-pill text-muted border-0 p-2 me-n1" type="button" id="salesByCountryTabs" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -113,6 +117,7 @@
         </div>
       </div>
       <div class="card-body p-0">
+
         <div class="nav-align-top">
           <ul class="nav nav-tabs nav-fill rounded-0 timeline-indicator-advanced" role="tablist">
             <li class="nav-item">
@@ -179,6 +184,7 @@
                                         <span class="avatar-initial rounded bg-label-danger"><i
                                                 class='ti ti-alert-triangle ti-28px'></i></span>
                                     </div>
+
                                     <h4 class="mb-0">{{\App\Models\Report::where('report_id', $report_id)->get()->value('breakdowns')}}</h4>
                                 </div>
                                 <p class="mb-1">Breakdowns</p>
@@ -191,7 +197,7 @@
             </div>
             <div class="tab-pane fade" id="navs-justified-link-preparing" role="tabpanel">
                 <div>
-                    <h5> <i class="badge bg-label-secondary ms-1">Report Note</i></h5>
+                    <h5> <i class="badge bg-label-secondary ms-1">Summary Note</i></h5>
                     <p class="mb-0">{{\App\Models\Report::where('report_id', $report_id)->get()->value('note')}}</p>
 
                     </button>
@@ -201,7 +207,7 @@
             </div>
             <div class="tab-pane fade" id="navs-justified-link-shipping" role="tabpanel">
                 @if ($modal_title)  <!--a flag to be know edit button is clicked, to avoid foreach being NULL-->
-            <h5><i class="badge bg-label-success ms-1">Report Files</i></h5>
+            <h5><i class="badge bg-label-secondary ms-1">Report Files</i></h5>
             <tr class="table-default">
 
 
@@ -212,14 +218,14 @@
                             {{  $file->file_name }}
                             <a href="{{ Storage::url($file->path) }}" download class="ti-ti">
 
-                                Download File  <i class="ti ti-download"></i>
+                                <i class="ti ti-download"></i>   Download File
                             </a>
 
 
                             <a
                                 href="{{ Storage::url($file->path) }}"
                                 target="_blank">
-                                Open File <i class="ti ti-eye"></i>{{ $file->name }}
+                                <i class="ti ti-eye"></i>{{ $file->name }}      Open File
                             </a>
                         </li>
                 </td>
@@ -228,7 +234,7 @@
                 @endif
             </div>
 
-        </div>
+
       </div>
     </div>
   </div>

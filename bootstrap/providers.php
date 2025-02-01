@@ -2,6 +2,7 @@
 
 return [
     App\Providers\AppServiceProvider::class,
-    App\Providers\ReportFilesServiceProvider::class,
+    App\Providers\ReportFilesProvider::class,
+    App\Providers\EmailMessageProvider::class,
     App\Providers\VoltServiceProvider::class,
 ];

@@ -102,17 +102,16 @@
               <div data-i18n="MESSAGING">MESSAGING</div>
             </a>
             <ul class="menu-sub">
-              <li class="menu-item">
-                <a href="#" class="menu-link">
-                  <div data-i18n="Send Message">Send Messages</div>
+                <x-active-menu-items :active="request()->is('logistics/system-messages')"></x-active-menu-items>
+                <a  href="/logistics/system-messages"  class="menu-link" wire:navigate >
+                  <div data-i18n="Send Daily Reports">Send Message</div>
                 </a>
               </li>
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <div data-i18n="Messaging Channel">Messaging Channel</div>
+              <x-active-menu-items :active="request()->is('logistics/message-history')"></x-active-menu-items>
+              <a  href="/logistics/message-history"  class="menu-link" wire:navigated >
+                  <div data-i18n="Report History">Message History</div>
                 </a>
               </li>
-
                 </ul>
               </li>
 

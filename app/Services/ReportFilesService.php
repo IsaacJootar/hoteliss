@@ -2,9 +2,10 @@
 
 namespace App\Services;
 
-use Illuminate\Http\UploadedFile;
-use App\Models\ReportsFileUpload;
 use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
+use App\Models\ReportsFileUpload;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -46,7 +47,7 @@ class ReportFilesService
         $sent_by,
         $sent_to,
         $user_id,
-        $section
+        $section,
     ): ReportsFileUpload {
         return ReportsFileUpload::create([
             'file_name' => $file->getClientOriginalName(), // real file name
@@ -58,7 +59,8 @@ class ReportFilesService
             'report_id' => $report_id,
             'sent_to' => $sent_to,
             'user_id' => $user_id,
-            'section' => Str::upper($section)
+            'section' => Str::upper($section),
+            'date' => Carbon::now()->timezone('Africa/Lagos')->format('Y-m-d'), // create a class later to accomodate other timezones
         ]);
     }
 }

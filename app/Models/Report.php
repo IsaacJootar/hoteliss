@@ -14,10 +14,11 @@ class Report extends Model
         'airport_pickups',
         'breakdowns',
         'other',
-        'note', // must on all reports
-        'sent_by', // must on all reports
-        'sent_to', // must on all reports
-        'section', // must on all reports
+        'note', // from here, all fields must on all reports, no matter the section
+        'sent_by',
+        'sent_to',
+        'section',
+        'date',
 
 
     ];

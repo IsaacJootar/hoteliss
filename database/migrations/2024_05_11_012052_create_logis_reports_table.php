@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('sent_by');
             $table->integer('sent_to');
             $table->string('section');
+            $table->date('date');
             $table->timestamps();
         });
     }

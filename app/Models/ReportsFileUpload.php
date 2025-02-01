@@ -19,5 +19,6 @@ class ReportsFileUpload extends Model
         'sent_to',
         'user_id',
         'section',
+        'date',
     ];
 }

@@ -4,9 +4,10 @@ namespace App\Livewire\Logistics;
 
 use App\Models\Report;
 use Livewire\Component;
+use Illuminate\Support\Carbon;
 use Livewire\Attributes\Title;
-use App\Services\ReportFilesService; // Update with the actual namespace
 use Livewire\Attributes\Validate;
+use App\Services\ReportFilesService;
 use Spatie\LivewireFilepond\WithFilePond;
 
 #[Title('Logistics | Reports')]
@@ -34,12 +35,12 @@ class Reports extends Component
     public $note;
 
 
-    #[Validate('required')]
+    #[Validate('required|integer')]
     public $airport_pickups;
 
-    #[Validate('required')]
+    #[Validate('required|integer')]
     public $other;
-    #[Validate('required')]
+    #[Validate('required|integer')]
     public $breakdowns;
     public $modal_title = 'Send Report.';
     public  $modal_flag = false; // flag for edit
@@ -50,10 +51,16 @@ class Reports extends Component
     public function save()
     {
         $this->validate(); // validate your own unique section summary inputs report fileds
+
+        $this->report_id = mt_rand(100000, 999999); // give me a random number
+        //$this->report_id = substr(   $this->report_id, -5);
+
+
+
         Report::updateOrCreate(
             ['id' => $this->report_id],
             [
-                'report_id' => $this->report_id = mt_rand(10000000, 99999999),
+                'report_id' => $this->report_id ,
                 'trips_made' => $this->trips_made,
                 'airport_pickups' => $this->airport_pickups,
                 'other' => $this->other,
@@ -61,12 +68,11 @@ class Reports extends Component
                 'note' => $this->note,
                 'sent_to' => $this->sent_to,
                 'sent_by' => $this->sent_by,
+                'date' => Carbon::now()->timezone('Africa/Lagos')->format('Y-m-d'), // create a class later to accomodate other timezones
                 'section' => $this->section,
             ]
 
         );
-
-
 
         if ($this->files) { // uploading files for daily reports may not be neccessary every day, but if files exist, inject the dependency
             $report_files_service = app(abstract: ReportFilesService::class); // inject the dependency class
@@ -74,11 +80,16 @@ class Reports extends Component
             foreach ($this->files as $file) {
                 $report_files_service->UploadFilesAndCreateRecord($file, $this->report_id,  $this->sent_by, $this->sent_to, $this->user_id, $this->section);
             }
-            toastr()->info($this->report_id ? 'Report Has Been Updated Successfuly' : 'Report Has Been Sent Successfuly');
-            $this->reset();
+
         }
+
+        toastr()->info('Report Has Been Sent Successfuly'); // even if files were not uploaded
+        $this->reset();
+
+
     }
 
+    /* No editing of reports for now
     public function edit($id)
     {
         $this->report = Report::findOrFail($id);
@@ -92,7 +103,7 @@ class Reports extends Component
         $this->modal_flag = true; // for update
         $this->modal_title = 'Update Report';
     }
-
+*/
     public function exit()
     { //rest modal feilds
         $this->reset();
