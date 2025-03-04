@@ -24,6 +24,30 @@
                 @endphp
                 <!-- Reservation search results starts -->
                 <h6 class="pb-1 mb-6"><span class="badge rounded-pill bg-label-info">Available rooms below are from time period:  <strong>   {{$checkin}} -  {{ $checkout}} </strong> You can search again using different dates above</span></h6>
+
+<!-- Website Analytics -->
+
+
+<div class="col-lg-5">
+    <div class="swiper-container swiper-container-horizontal swiper swiper-card-advance-bg"
+      id="swiper-with-pagination-cards">
+
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+
+          <div class="row">
+
+            
+          </div>
+
+
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+  <!--/ Website Analytics -->
                 <div class="row mb-12 g-6">
                     @foreach ($allocations as $allocation)
                   <div class="col-md">

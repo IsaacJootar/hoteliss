@@ -8,6 +8,8 @@
     <div class="container">
       <div class="card px-3">
         <div class="row">
+
+
           <div class="col-lg-7 card-body border-end p-md-8">
             <h4 class="mb-2"><strong> Confirm Reservation</strong> (ID:{{$reservation_id}})</h4>
 
@@ -32,9 +34,9 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>{{(DB::table('room_categories')->where('id', $category_id)->get()->value('category'))}}</td>
-                        <td>{{($fullname = DB::table('reservations')->where('reservation_id', $reservation_id)->get()->value('fullname'))}}</td>
-                        <td>{{(DB::table('reservations')->where('reservation_id', $reservation_id)->get()->value('phone'))}}</td>
+                        <td>{{(\App\Models\RoomCategory::where('id', $category_id)->get()->value('category'))}}</td>
+                        <td>{{($fullname = \App\Models\Reservation::where('reservation_id', $reservation_id)->get()->value('fullname'))}}</td>
+                        <td>{{(\App\Models\Reservation::where('reservation_id', $reservation_id)->get()->value('phone'))}}</td>
 
 
                       </tr>
@@ -70,7 +72,7 @@
 
                         </td>
                         <td></td>
-                        <td>{{(Str::of(\App\Models\Roomallocation::where('reservation_id', $reservation_id)->get()->value('requests'))->limit(50))}}</td>
+                        <td>{{(Str::of(\App\Models\Reservation::where('reservation_id', $reservation_id)->get()->value('requests'))->limit(50))}}</td>
 
 
                       </tr>
@@ -118,9 +120,9 @@
                </div>
              </div>
             <div class="bg-lighter p-6 rounded">
-              <p><h6>{{(DB::table('room_categories')->where('id', $category_id)->get()->value('category'))}}</h6></p>
+              <p><h4>{{(\App\Models\Roomcategory::where('id', $category_id)->get()->value('category'))}}</h4></p>
               <div class="d-flex align-items-center mb-4">
-                <h2 class="text-heading mb-0">{{Helper::format_currency($price = \App\Models\Roomallocation::where('category_id', $category_id)->get()->value('price'));}}</h2>
+                <h4 class="text-heading mb-0">{{Helper::format_currency($price = \App\Models\Roomallocation::where('category_id', $category_id)->get()->value('price'));}}</h4>
                 <sub class="h6 text-body mb-n3">/Night</sub>
               </div>
               <div class="d-grid">
@@ -214,7 +216,7 @@
         <hr class="my-2">
 
 
-        <a wire:click='comfirmPayment({{$reservation->reservation_id }})'
+<a wire:click="comfirmPayment('{{ $reservation_id }}', '{{ $email }}')"
             wire:confirm="Are you sure you want to proceed and comfirm this payment?"
             > <button class="btn btn-success">
                 <span style="color: white" class="me-2">Comfirm this Payment </span>

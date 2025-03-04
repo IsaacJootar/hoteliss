@@ -104,10 +104,6 @@ class Reports extends Component
         $this->modal_title = 'Update Report';
     }
 */
-    public function exit()
-    { //rest modal feilds
-        $this->reset();
-    }
 
 
     /*

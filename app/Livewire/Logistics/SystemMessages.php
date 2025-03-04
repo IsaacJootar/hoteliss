@@ -4,7 +4,6 @@ namespace App\Livewire\Logistics;
 use Livewire\Component;
 use App\Models\SystemMessage;
 use Livewire\Attributes\Title;
-use Livewire\Attributes\Validate;
 use App\Services\EmailMessageService;
 
 #[Title('Logistics | Messaging')]
@@ -22,11 +21,6 @@ class SystemMessages extends Component
     public $message_id; // give me a random numberto identify each message
 
     public $section = 'Logistics'; //Hotel Section,like depart
-
-
-    protected $rules = [
-        'message' => 'required|min:10',
-    ];
 
 
 
@@ -58,9 +52,6 @@ class SystemMessages extends Component
 
 
     }
-
-
-
     public function render()
     {
         $this->messages = SystemMessage::all();

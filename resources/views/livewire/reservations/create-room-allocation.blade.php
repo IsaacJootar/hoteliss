@@ -17,7 +17,7 @@
 
 
             <label for="selectRoom" class="form-label">Select Room</label>
-                <select wire:model="room_id"  class="select2 form-select form-select-lg" data-allow-clear="true">
+                <select wire:model="room_id"    id="selectpickerBasic"    class="form-select form-select-lg" data-allow-clear="true">
                     <option value="">--Select Room--</option>
                     @foreach ($rooms as $room)
 
@@ -26,7 +26,7 @@
                   </select><br>
 
                 <label for="selectCat" class="form-label">Select Room Category</label>
-                <select wire:model="category_id" class="select2 form-select form-select-lg" data-allow-clear="true">
+                <select wire:model="category_id" class="form-select form-select-lg" data-allow-clear="true">
                     <option value="">--Select Room--</option>
                     @foreach ($categories as $category)
 

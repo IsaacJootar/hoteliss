@@ -3,7 +3,7 @@
 
 
     <div class="app-brand demo ">
-      <a href="index-2.html" class="app-brand-link">
+      <a  class="app-brand-link">
         <span class="app-brand-logo demo">
           <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -18,7 +18,7 @@
               fill="#7367F0" />
           </svg>
         </span>
-        <span class="app-brand-text demo menu-text fw-bold">Hotelis</span>
+        <span class="app-brand-text demo menu-text fw-bold">Vine Suites</span>
       </a>
 
       <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -41,199 +41,144 @@
         <ul class="menu-sub">
 
           <x-active-menu-items :active="request()->is('reservations/home-create-rooms')"></x-active-menu-items>
-            <a href="/reservations/home-create-rooms" wire:navigate class="menu-link" >
+            <a href="/reservations/home-create-rooms"  class="menu-link" >
           Rooms
             </a>
           </li>
           <x-active-menu-items :active="request()->is('reservations/home-create-room-category')"></x-active-menu-items>
-            <a href="/reservations/home-create-room-category" wire:navigate class="menu-link">
+            <a href="/reservations/home-create-room-category"  class="menu-link">
             Room Category
             </a>
           </li>
           <x-active-menu-items :active="request()->is('reservations/home-create-room-allocation')"></x-active-menu-items>
-            <a  href="/reservations/home-create-room-allocation"  class="menu-link">
+            <a  href="/reservations/home-create-room-allocation"  class="menu-link" >
           Rooms Allocations
             </a>
           </li>
           <x-active-menu-items :active="request()->is('reservations/available-rooms')"></x-active-menu-items>
-          <a href="/reservations/available-rooms" class="menu-link">
+          <a href="/reservations/available-rooms" class="menu-link" >
           Available Rooms
             </a>
           </li>
           <x-active-menu-items :active="request()->is('reservations/reservations')"></x-active-menu-items>
-            <a href="/reservations/reservations" class="menu-link">
+            <a href="/reservations/reservations" class="menu-link" >
           Book a Room
             </a>
           </li>
+
+
+
           <x-active-menu-items :active="request()->is('reservations/reserved-rooms')"></x-active-menu-items>
-          <a href="/reservations/reserved-rooms" class="menu-link">
+          <a href="/reservations/reserved-rooms" class="menu-link" >
         Reserved Rooms
           </a>
         </li>
         <x-active-menu-items :active="request()->is('reservations/due-rooms')"></x-active-menu-items>
-        <a href="/reservations/due-rooms" class="menu-link">
+        <a href="/reservations/due-rooms" class="menu-link" >
       Due Rooms
         </a>
       </li>
-      <x-active-menu-items :active="request()->is('reservations/due-rooms')"></x-active-menu-items>
-      <a href="/reservations/due-rooms" class="menu-link">
-    Room Checkouts
+      <x-active-menu-items :active="request()->is('reservations/checkedout-room')"></x-active-menu-items>
+      <a href="/reservations/checkedout-rooms" class="menu-link" >
+  Checked Out  Rooms
       </a>
     </li>
-      <x-active-menu-items :active="request()->is('')"></x-active-menu-items>
-      <a href="#" class="menu-link">
-    Verify Reservation ID
+      <x-active-menu-items :active="request()->is('reservations/room-swap')"></x-active-menu-items>
+      <a href="/reservations/room-swap" class="menu-link">
+    Swap Room(s)
       </a>
     </li>
+
+
+    <x-active-menu-items :active="request()->is('')"></x-active-menu-items>
+    <a href="#" class="menu-link">
+  Cancel Reservation
+    </a>
+  </li>
+
+  <x-active-menu-items :active="request()->is('')"></x-active-menu-items>
+  <a href="#" class="menu-link">
+Extend Reservation
+  </a>
+</li>
     <x-active-menu-items :active="request()->is('')"></x-active-menu-items>
     <a href="#" class="menu-link">
   Abandoned Reservations
     </a>
   </li>
       <x-active-menu-items :active="request()->is('reservations/reservation-feeds')"></x-active-menu-items>
-      <a href="/reservations/reservation-feeds" class="menu-link">
+      <a href="/reservations/reservation-feeds" class="menu-link" >
     Reservation Feeds
       </a>
     </li>
         </ul>
       </li>
+
+
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class='menu-icon tf-icons ti ti-shopping-cart'></i>
-          <div data-i18n="eCommerce">eCommerce</div>
+          <i class='menu-icon tf-icons ti ti-calendar'></i>
+          <div data-i18n="EVENTS">Manage Events </div>
         </a>
         <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="app-ecommerce-dashboard.html" class="menu-link">
-              <div data-i18n="Dashboard">Dashboard</div>
+            <x-active-menu-items :active="request()->is('')"></x-active-menu-items>
+    <a href="#" class="menu-link">
+              <div data-i18n="Event Categories">Event Categories </div>
             </a>
           </li>
-          <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <div data-i18n="Products">Products</div>
+         <x-active-menu-items :active="request()->is('')"></x-active-menu-items>
+    <a href="#" class="menu-link">
+              <div data-i18n="Event Items">Event Items</div>
             </a>
-            <ul class="menu-sub">
-              <li class="menu-item">
-                <a href="app-ecommerce-product-list.html" class="menu-link">
-                  <div data-i18n="Product List">Product List</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-ecommerce-product-add.html" class="menu-link">
-                  <div data-i18n="Add Product">Add Product</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-ecommerce-category-list.html" class="menu-link">
-                  <div data-i18n="Category List">Category List</div>
-                </a>
-              </li>
-            </ul>
           </li>
-          <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <div data-i18n="Order">Order</div>
-            </a>
-            <ul class="menu-sub">
-              <li class="menu-item">
-                <a href="app-ecommerce-order-list.html" class="menu-link">
-                  <div data-i18n="Order List">Order List</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-ecommerce-order-details.html" class="menu-link">
-                  <div data-i18n="Order Details">Order Details</div>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <div data-i18n="Customer">Customer</div>
-            </a>
-            <ul class="menu-sub">
-              <li class="menu-item">
-                <a href="app-ecommerce-customer-all.html" class="menu-link">
-                  <div data-i18n="All Customers">All Customers</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <div data-i18n="Customer Details">Customer Details</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="app-ecommerce-customer-details-overview.html" class="menu-link">
-                      <div data-i18n="Overview">Overview</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="app-ecommerce-customer-details-security.html" class="menu-link">
-                      <div data-i18n="Security">Security</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="app-ecommerce-customer-details-billing.html" class="menu-link">
-                      <div data-i18n="Address & Billing">Address & Billing</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="app-ecommerce-customer-details-notifications.html" class="menu-link">
-                      <div data-i18n="Notifications">Notifications</div>
-                    </a>
-                  </li>
 
+          <x-active-menu-items :active="request()->is('')"></x-active-menu-items>
+          <a href="#" class="menu-link">
+                    <div data-i18n="Lease">Lease</div>
+                  </a>
+                </li>
+            </ul>
+          </li>
+       <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class='menu-icon tf-icons ti ti-file-description'></i>
+          <div data-i18n="REPORTS">REPORTS</div>
+        </a>
+        <ul class="menu-sub">
+            <x-active-menu-items :active="request()->is('')"></x-active-menu-items>
+    <a href="#" class="menu-link">
+              <div data-i18n="Send Daily Reports">Send Daily Reports</div>
+            </a>
+          </li>
+         <x-active-menu-items :active="request()->is('')"></x-active-menu-items>
+    <a href="#" class="menu-link">
+              <div data-i18n="Report History">Report History</div>
+            </a>
+          </li>
+            </ul>
+          </li>
+
+
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class='menu-icon ti ti-messages'></i>
+              <div data-i18n="MESSAGING">MESSAGING</div>
+            </a>
+            <ul class="menu-sub">
+              <x-active-menu-items :active="request()->is('')"></x-active-menu-items>
+    <a href="#" class="menu-link">
+                  <div data-i18n="Send Daily Reports">Send Message</div>
+                </a>
+              </li>
+             <x-active-menu-items :active="request()->is('')"></x-active-menu-items>
+    <a href="#" class="menu-link">
+                  <div data-i18n="Report History">Message History</div>
+                </a>
+              </li>
                 </ul>
               </li>
-            </ul>
-          </li>
-          <li class="menu-item">
-            <a href="app-ecommerce-manage-reviews.html" class="menu-link">
-              <div data-i18n="Manage Reviews">Manage Reviews</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="app-ecommerce-referral.html" class="menu-link">
-              <div data-i18n="Referrals">Referrals</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <div data-i18n="Settings">Settings</div>
-            </a>
-            <ul class="menu-sub">
-              <li class="menu-item">
-                <a href="app-ecommerce-settings-detail.html" class="menu-link">
-                  <div data-i18n="Store Details">Store Details</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-ecommerce-settings-payments.html" class="menu-link">
-                  <div data-i18n="Payments">Payments</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-ecommerce-settings-checkout.html" class="menu-link">
-                  <div data-i18n="Checkout">Checkout</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-ecommerce-settings-shipping.html" class="menu-link">
-                  <div data-i18n="Shipping & Delivery">Shipping & Delivery</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-ecommerce-settings-locations.html" class="menu-link">
-                  <div data-i18n="Locations">Locations</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-ecommerce-settings-notifications.html" class="menu-link">
-                  <div data-i18n="Notifications">Notifications</div>
-                </a>
-              </li>
-            </ul>
-          </li>
+
+
         </ul>
       </li>
 

@@ -80,7 +80,7 @@
               <div class="col-12">
 
                 <label for="selectCat" class="form-label">Item Category</label>
-                        <select wire:model="category" class="select2 form-select form-select-lg"
+                        <select wire:model="category" class="form-select form-select-lg"
                             data-allow-clear="true">
                             <option value="">--Select Fleet Category--</option>
 

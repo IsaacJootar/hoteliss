@@ -47,10 +47,10 @@
                              <tr wire:key='{{$reservation->id}}'>
 
                                  <td>{{$loop->index + 1}}</td>
-                                 <td>{{Str::ucfirst($room = DB::table('rooms')->where('id', $reservation->room_id)->value('name'))}}
+                                 <td>{{Str::ucfirst($room = \App\Models\Room::where('id', $reservation->room_id)->value('name'))}}
                                 </td>
 
-                                <td>{{str::ucfirst($room = DB::table('room_categories')->where('id', $reservation->category_id)->value('category'))}}
+                                <td>{{str::ucfirst($room = \App\Models\RoomCategory::where('id', $reservation->category_id)->value('category'))}}
                                 </td>
                                 <td>    {{$reservation->checkin}}</td>
                                 <td>    {{$reservation->checkout}}</td>

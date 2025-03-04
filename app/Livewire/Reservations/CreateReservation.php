@@ -16,7 +16,7 @@ class CreateReservation extends Component
     public $nor;
     public $checkin;
     public $checkout;
-    public $medium = 'online';
+    public $medium = 'Front Desk';
     public $fullname;
     public $address;
     public $requests;
@@ -101,7 +101,7 @@ class CreateReservation extends Component
                 ->update(['checkin' => $this->checkin, 'checkout' => $this->checkout]);
 
         endforeach;
-        //dd($this->reservation_id)
+        //dd($this->reservation_id);;
 
         return to_route('checkout-reservation', ['reservation_id' => $this->reservation_id,]);
     }

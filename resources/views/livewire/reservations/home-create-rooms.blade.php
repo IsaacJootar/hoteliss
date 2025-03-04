@@ -14,7 +14,7 @@
         <div class="card">
 <div class="table-responsive text-nowrap">
 
-    <table class="table">
+    <table id="myTable" class="table">
       <thead class="table-light">
 
                         <tr>
@@ -62,4 +62,6 @@
 
 
     <livewire:reservations.create-rooms>
+
+
 </div>

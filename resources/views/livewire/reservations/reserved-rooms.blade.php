@@ -7,7 +7,7 @@
      <div class="container-xxl flex-grow-1 container-p-y">
              <!--/ page-label component -->
          <div>
-             <x-home-page-label>These  are reserved room(s) as at today {{Carbon::now()->format('l, jS \ F, Y')}}</x-home-page-label>
+             <x-home-page-label>These  are reserved room(s) as at today {{Carbon::parse($checkin)->format('l jS \ F Y')}}</x-home-page-label>
          </div>
           <!--/ action button component -->
 
@@ -48,16 +48,16 @@
                              <tr wire:key='{{$reserve->id}}'>
 
                                  <td>{{$loop->index + 1}}</td>
-                                 <td>{{Str::ucfirst($room = DB::table('rooms')->where('id', $reserve->room_id)->value('name'))}}
+                                 <td>{{Str::ucfirst($room = \App\Models\Room::where('id', $reserve->room_id)->value('name'))}}
                                 </td>
 
-                                <td>{{str::ucfirst($room = DB::table('room_categories')->where('id', $reserve->category_id)->value('category'))}}
+                                <td>{{str::ucfirst($room = \App\Models\Roomcategory::where('id', $reserve->category_id)->value('category'))}}
                                 </td>
                                 <td>    {{$reserve->reservation_id}}</td>
                                 <td>   {{$reserve->fullname}}</td>
                                 <td>    {{$reserve->checkin}}</td>
                                 <td>    {{$reserve->checkout}}</td>
-                                <td>    {{Helper::format_currency(DB::table('room_allocations')->where('room_id', $reserve->room_id)->value('price'))}}</td>
+                                <td>    {{Helper::format_currency(\App\Models\Roomallocation::where('room_id', $reserve->room_id)->value('price'))}}</td>
 
                                 <td>    {{$reserve->medium}}</td>
                                 <td><span class="badge bg-label-primary me-1">Reserved</span></td>
@@ -74,10 +74,12 @@
                                     <div class="dropdown-menu">
                                         <a data-bs-toggle="modal" data-bs-target="#roombooked" class="dropdown-item" href="javascript:void(0);"><i
                                             class="ti ti-receipt me-1"></i> View Receipt</a>
-                                            <a wire:click='comfirmPayment({{$reserve->reservation_id }})'
-                                                wire:confirm="Are you sure you want to proceed and Comfirm Payment?"
-                                                class="dropdown-item" href="javascript:void(0);"><i
-                                                    class="ti ti-check me-1"></i> Comfirm this Payment</a>
+                                            <a wire:click="confirmPayment('{{ $reserve->reservation_id }}', '{{ $reserve->email }}')"
+                                                wire:confirm="Are you sure you want to proceed and confirm payment?"
+                                                class="dropdown-item" href="javascript:void(0);">
+                                                <i class="ti ti-check me-1"></i> Confirm this Payment
+                                             </a>
+
                                             </div>
                                         </div>
                                     </td>

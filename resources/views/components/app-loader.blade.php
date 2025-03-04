@@ -1,8 +1,16 @@
 <div wire:loading>
-    <button class="btn btn-primary" disabled>
-        <span class="spinner-grow me-1" role="status" aria-hidden="true"></span>
+    <br>
+        <div class="sk-chase sk-primary">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+          </div>
         {{$slot}}
-      </button>
-</div>
+
+    </div>
+
 
 

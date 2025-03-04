@@ -86,7 +86,7 @@ class UpdateReservation extends Component
             ->limit($this->nor)->get();
             Reservation::where('reservation_id', $this->reservation_id)->delete();
 
-            $this->reservation_id = mt_rand(10000000, 99999999); // generate a new reservation ID, just for convinience
+        $this->reservation_id = mt_rand(10000000, 99999999); // generate a new reservation ID, just for convinience
 
         foreach ($this->allocations as $this->allocation):
 

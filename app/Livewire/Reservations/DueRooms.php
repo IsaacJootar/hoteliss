@@ -3,15 +3,13 @@
 namespace App\Livewire\Reservations;
 
 use Carbon\Carbon;
-use App\Models\Room;
 use Livewire\Component;
 use App\Models\Reservation;
 use Livewire\Attributes\On;
-use App\Models\Roomcategory;
 use App\Models\Roomallocation;
 use Livewire\Attributes\Title;
 use Illuminate\Validation\ValidationException;
-#[Title('Reservations | Due Roooms')]
+#[Title('Reservations | Due Rooms')]
 class DueRooms extends Component
 {
 

@@ -1,4 +1,5 @@
 <!-- Menu -->
+
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
 
@@ -41,13 +42,13 @@
         <ul class="menu-sub">
 
           <x-active-menu-items :active="request()->is('logistics/activity-log')"></x-active-menu-items>
-            <a  href="/logistics/activity-log"  class="menu-link" wire:navigate >
+            <a  href="/logistics/activity-log"  class="menu-link"  >
           Activity Logs
             </a>
           </li>
 
           <x-active-menu-items :active="request()->is('logistics/fleet-items')"></x-active-menu-items>
-          <a  href="/logistics/fleet-items"  class="menu-link" wire:navigate >
+          <a  href="/logistics/fleet-items"  class="menu-link"  >
          Manage Fleet
             </a>
         </li>
@@ -83,12 +84,12 @@
         </a>
         <ul class="menu-sub">
             <x-active-menu-items :active="request()->is('logistics/reports')"></x-active-menu-items>
-            <a  href="/logistics/reports"  class="menu-link" wire:navigate >
+            <a  href="/logistics/reports"  class="menu-link"  >
               <div data-i18n="Send Daily Reports">Send Daily Reports</div>
             </a>
           </li>
           <x-active-menu-items :active="request()->is('logistics/report-history')"></x-active-menu-items>
-          <a  href="/logistics/report-history"  class="menu-link" wire:navigated >
+          <a  href="/logistics/report-history"  class="menu-link"  >
               <div data-i18n="Report History">Report History</div>
             </a>
           </li>
@@ -103,12 +104,12 @@
             </a>
             <ul class="menu-sub">
                 <x-active-menu-items :active="request()->is('logistics/system-messages')"></x-active-menu-items>
-                <a  href="/logistics/system-messages"  class="menu-link" wire:navigate >
+                <a  href="/logistics/system-messages"  class="menu-link"  >
                   <div data-i18n="Send Daily Reports">Send Message</div>
                 </a>
               </li>
               <x-active-menu-items :active="request()->is('logistics/message-history')"></x-active-menu-items>
-              <a  href="/logistics/message-history"  class="menu-link" wire:navigated >
+              <a  href="/logistics/message-history"  class="menu-link"  >
                   <div data-i18n="Report History">Message History</div>
                 </a>
               </li>
